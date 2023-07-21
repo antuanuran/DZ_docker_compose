@@ -1,0 +1,95 @@
+# примеры API-запросов
+
+# 1. Получение всех продуктов
+GET http://localhost:8000/api/v1/products/
+Content-Type: application/json
+
+###
+
+# 2. Создание продукта
+POST http://localhost:8000/api/v1/products/
+Content-Type: application/json
+
+{
+  "title": "огурец",
+  "description": "вкус похож на МАНДАРИН"
+}
+
+###
+
+
+# 3. Обновление продукта
+PATCH http://localhost:8000/api/v1/products/Мандарин/
+Content-Type: application/json
+
+{
+  "description": "Самый лучший мандаринчиккк"
+}
+
+###
+
+# 4. Удаление продукта
+DELETE http://localhost:8000/api/v1/products/Мандарин/
+Content-Type: application/json
+
+
+###
+# 5. Удаление склада
+DELETE http://localhost:8000/api/v1/stocks/26
+Content-Type: application/json
+
+
+###
+
+# 6. Поиск продуктов по названию и описанию
+GET http://localhost:8000/api/v1/products/?search=мандарин
+Content-Type: application/json
+
+###
+
+# 7. Создание склада
+POST http://localhost:8000/api/v1/stocks/
+Content-Type: application/json
+
+{
+  "address": "Склад552",
+  "positions": [
+    {
+      "product": 9,
+      "quantity": 1000,
+      "price": 120.50
+    },
+    {
+      "product": 10,
+      "quantity": 100220,
+      "price": 9999
+    }
+  ]
+}
+
+###
+
+# 8. Обновляем записи на складе
+PATCH http://localhost:8000/api/v1/stocks/35/
+Content-Type: application/json
+
+{
+  "address": "накрасава",
+  "positions": [
+    {
+      "product": 11,
+      "quantity": 9999,
+      "price": 120.50
+    },
+    {
+      "product": 11,
+      "quantity": 8888,
+      "price": 9999
+    }
+  ]
+}
+
+
+###
+# 10. РЕЗУЛЬТАТ
+GET http://localhost:8000/api/v1/stocks/?page=4
